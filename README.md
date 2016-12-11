@@ -20,4 +20,12 @@ Curso de desenvolvimento de RESTFUL API em Node, usando boas práticas, ES6 e TD
 - Criando models e schemas com Mongoose :white_medium_square:
 - Criando controllers e seus métodos :white_medium_square:
 - Criando rotas e endpoints ao Express :white_medium_square:
+- Validando endpoints :white_medium_square:
 - Fazendo nosso primeiro teste passar :white_medium_square:
+
+#### Módulo 4: Autenticação - JWT
+- Como funciona o JWT :white_medium_square:
+- Criando o módulo de usuários :white_medium_square:
+- Criando o módulo de autenticação :white_medium_square:
+- Como autenticar com JWT :white_medium_square:
+- Validando e protegendo ações restritas :white_medium_square:
