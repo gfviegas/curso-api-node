@@ -5,7 +5,7 @@ Curso de desenvolvimento de RESTFUL API em Node, usando boas práticas, ES6 e TD
 
 #### Módulo 1: Introdução
 - Configurando nosso ambiente :white_check_mark:
-- O que é uma API RESTFUL? :white_medium_square:
+- O que é uma API RESTFUL? :white_check_mark:
 - Introdução a Express, Mongoose e Mocha/Chai. :white_medium_square:
 - Modularização de aplicações Node :white_medium_square:
 - Organização de pastas e arquivos :white_medium_square:

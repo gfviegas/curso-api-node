@@ -19,6 +19,8 @@ O assunto é bem vasto, então vou dar uma resumida nos pontos mais importantes 
  Bom, pontuei apenas os pontos que considero extremamente necessários, mas não listei nem metade. Como disse, o mundo REST é vasto, e te sugiro estudar a fundo as outras regras e sugestões, mas vamos continuar com o conteúdo.
 
 ## Métodos HTTP
+Existem outros além do que será explicado a seguir, mas eles são importantes conhecer. Os outros métodos são muito específicos e pouco utilizados.
+
 - [OPTIONS](#options)
 - [HEAD](#head)
 - [GET](#get)
@@ -54,15 +56,43 @@ Bom, bacana, entendemos o que é o HEAD. Vamos aprender também algumas regras e
 > A informação contida nos cabeçalhos de repsosta HTTP **PODE** ser idêntica ao do método GET.
 
 ### GET
-<!-- TODO: Escrever isso -->
+O método GET recupera um recurso. Ele é o método mais comum e é utilizado o tempo todo para buscar dados. Ele não tem muito segredo, envie um GET ao endpoint de um recurso e você receberá os dados solicitados.
+
+Se tratando de RESTful é importante que os parametros sejam enviados de forma correta. Sabemos que o padrão RESTful é por entidade, e não métodos. Sendo assim, uma lista de uma entidade, por exemplo `Foods`, seria recuperado com um `GET /api/v1/food`. Se você quer recuperar um food específico, você o passa como parametro na url path: `GET /api/v1/food/23`, que te traria o food identificado como "23".
+
+Note que essa maneira de passar os parâmetros vale para **IDENTIFICADORES** de um recurso, e não pra buscas, paginação, filtros, etc. No exemplo anterior, `23` seria o ID, ou codigo unico do food. Esse ID identifica o recurso que estamos analisando e ele sempre será o food #23. Quando queremos fazer um GET com paginação, ordenação, busca e outros parametros, o recomendado é passar via query string, como em `GET api/v1/food?page=1`. Este *padrão* de parâmetros não existe, mas é dessa forma que a maioria das APIS REST são feitas, e então sugiro fazer o mesmo.
+
+> NUNCA, eu disse **NUNCA** use GET para fazer qualquer outra coisa a não ser recuperar dados.
+>> É sério, NUNCA.
+
+
 ### POST
-<!-- TODO: Escrever isso -->
+O método POST serve para criar recursos. Algumas APIs utilizam esse método para atualizar os dados também, mas não faça isso. Já temos outros dois métodos HTTP para atualização de dados, não tem porquê usar o POST.
+
+Nem sempre fica explícito que uma certa operação é de criação de recursos e deve usar o POST. Por exemplo, se tivermos uma loja virtual e precisamos de um endpoint para comprar um produto. Não é explicito que "comprar um produto" significa "criar um novo recurso", mas teoricamente você está cadastrando um novo pedido não é? Então o correto seria um `POST /api/v1/order`, enviando no body os dados desse pedido. Nada de `POST /api/v1/purchase` ou qualquer verbo, como foi dito anteriormente.
+
+Sempre envie os dados do POST no body do seu request. Se tratando de APIs REST a maioria dos casos você deverá enviar um JSON, mas em alguns casos como em upload de arquivos é totalmente aceitável enviar um Form Data.
+
+Retorne um status `201 Created` se for retornar o recurso criado. Caso contrário retorne um status `204 No Content`.
+
 ### PUT
-<!-- TODO: Escrever isso -->
+Esse é um dos métodos para atualizar recursos. Ele se comporta da mesma maneira que o método POST, enviando dados por body, porém você precisa identificar o recurso sendo atualizado. Seguindo o exemplo anterior, se você quisesse atualizar o seu pedido, teria que fazer um `PUT /api/v1/order/930293` pra atualizar o pedido #930293. Sacou?
+
+O PUT é utilizado para atualização *COMPLETA* do seu recurso, substituindo todos os valores pelos enviados. Isso significa que esse método não serve para atualizar por exemplo, apenas o nome do seu usuário. Você tem que mandar TODOS os dados do seu usuário e o PUT substitui tudo recebido. Se você precisa atualizar somente alguns dados, veja o método abaixo.
+
+Você pode retornar um status `200 OK` se quiser retornar algum dado descrevendo a entidade atualizada, um `202 Accepted` se ainda não executou a atualização ou um `204 No Content` se atualizou mas não retorna nenhum dado.
+
 ### PATCH
-<!-- TODO: Escrever isso -->
+É o mesmo esquema do PUT, porém ele não substitui por completo o recurso atualizado. Isto é, utilize esse método se quer atualizar apenas parte do recurso, como um campo do banco de dados.
+
+Assim como o PUT, você pode retornar um status `200 OK` se quiser retornar algum dado descrevendo a entidade atualizada, um `202 Accepted` se ainda não executou a atualização ou um `204 No Content` se atualizou mas não retorna nenhum dado.
+
 ### DELETE
-<!-- TODO: Escrever isso -->
+Mais autodescritivo que esse, não vamos encontrar. `DELETE /api/v1/user/92`: excluí o user #92. Simples assim.
+
+Não se deve retornar uma resposta de sucesso a exclusão ao menos que a ação destrutiva já tenha sido finalizada (como excluindo o arquivo do storage, ou o recurso do banco de dados).
+
+Você pode retornar um status `200 OK` se quiser retornar algum dado descrevendo a entidade excluída, um `202 Accepted` se ainda não executou a ação destrutiva ou um `204 No Content` se executou a açào mas não retorna nenhum dado.
 
 ### Fontes e Sugestão de Leituras:
 - [Best Practices for Designing a Pragmatic RESTful API](http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api)
