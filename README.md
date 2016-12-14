@@ -4,12 +4,11 @@ Curso de desenvolvimento de RESTFUL API em Node, usando boas práticas, ES6 e TD
 ### Conteúdo do Curso
 
 #### Módulo 1: Introdução
+- O que é uma API RESTful? :white_check_mark:
 - Configurando nosso ambiente :white_check_mark:
-- O que é uma API RESTFUL? :white_check_mark:
-- Introdução a Express, Mongoose e Mocha/Chai. :white_medium_square:
-- Modularização de aplicações Node :white_medium_square:
+- Introdução a Express, Mongoose e Mocha/Chai. :white_check_mark:
+- Inicialização do server e Mongoose :white_check_mark:
 - Organização de pastas e arquivos :white_medium_square:
-- Configuração do server :white_medium_square:
 
 #### Módulo 2: TDD
 - O que é TDD afinal? Eu realmente tenho que usar isso? :white_medium_square:
