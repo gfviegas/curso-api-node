@@ -47,16 +47,3 @@ app.use((req, res, next) => {
 })
 ```
 Em seguida incializamos nosso server com `server.start(app)`. Este método vive no arquivo `config/server.js` e recebe a instância do nosso app express para inicializar o servidor. Bem clean.
-
-a
-
-a
-
-a
-
-a
-
-
-a
-
-a

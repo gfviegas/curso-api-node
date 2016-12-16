@@ -11,6 +11,9 @@ Mongoose é o ODM de MongoDB para Node. É simplesmente sensacional. Nos permite
 
 [Documentação](http://mongoosejs.com/docs/guide.html)
 
+## JWT
+[TO WRITE]
+
 ## Mocha
 Mocha é um framework de testes para diversos propósitos. Assim como o Express, vamos o utilizar por sua popularidade e simplicidade.
 
@@ -20,3 +23,9 @@ Mocha é um framework de testes para diversos propósitos. Assim como o Express,
 Chai é uma biblioteca de asserção, nos permite dizer o quê deve estar como.
 
 [Documentação](http://chaijs.com/api/)
+
+## Sinon
+[TO WRITE]
+
+## Supertest
+[TO WRITE]
