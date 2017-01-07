@@ -16,6 +16,15 @@ A medida que seu sistema cresce, cresce também a necessidade de aprimorar as su
 
 ![Test, Code, Refactor](https://rafaelfranchi.files.wordpress.com/2012/01/tdd_cycle.jpg)
 
+Então lembre-se desse ciclo:
+- Faça o teste
+- Veja ele falhar miseravelmente
+- Escreva o seu código
+- Veja seu teste passar
+- Faça mais testes!!
+- ....
+
+
 ### Fontes e Sugestão de Leituras:
 - [Test-Driven-Development for building APIs in Node.js and Express](https://developers.redhat.com/blog/2016/03/15/test-driven-development-for-building-apis-in-node-js-and-express/)
 - [O que é TDD](https://rafaelfranchi.wordpress.com/2012/01/25/o-que-e-tdd/)
